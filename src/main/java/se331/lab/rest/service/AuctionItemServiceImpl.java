@@ -18,6 +18,11 @@ public class AuctionItemServiceImpl implements AuctionItemService {
     BidDao bidDao;
 
     @Override
+    public Integer getAuctionItemSize(){
+        return auctionItemDao.getAuctionItemSize();
+    }
+
+    @Override
     public Page<AuctionItem> getAuctionItems(Integer pageSize, Integer page) {
         return auctionItemDao.getAuctionItems(pageSize, page);
     }

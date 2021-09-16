@@ -16,6 +16,6 @@ public class AuctionItemDTO {
     Long id;
     String description;
     String type;
-    List<Bid> bids = new ArrayList<>();
+    List<BidDTO> bids = new ArrayList<>();
     BidDTO successfulBid;
 }

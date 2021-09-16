@@ -13,6 +13,7 @@ import java.util.Optional;
 public class BidDaoImpl implements BidDao {
     @Autowired
     BidRepository bidRepository;
+
     @Override
     public Page<Bid> getBid(Pageable pageRequest) {
         return bidRepository.findAll(pageRequest);

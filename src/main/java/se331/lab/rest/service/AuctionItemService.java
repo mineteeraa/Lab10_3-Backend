@@ -5,6 +5,8 @@ import org.springframework.data.domain.Pageable;
 import se331.lab.rest.entity.AuctionItem;
 
 public interface AuctionItemService {
+    Integer getAuctionItemSize();
+
     Page<AuctionItem> getAuctionItems(Integer pageSize, Integer page);
 
     AuctionItem getAuctionItem(Long id);

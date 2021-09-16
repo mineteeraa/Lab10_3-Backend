@@ -20,7 +20,7 @@ public class AuctionItem {
     String type;
 
     @OneToMany(mappedBy = "item")
-            @Builder.Default
+    @Builder.Default
     List<Bid> bids = new ArrayList<>();
 
     @OneToOne

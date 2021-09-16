@@ -11,8 +11,8 @@ import se331.lab.rest.util.LabMapper;
 public class BidController {
     @Autowired
     BidService bidService;
-    @GetMapping("/organizers")
-    ResponseEntity<?> getOrganizers(){
-        return ResponseEntity.ok(LabMapper.INSTANCE.getOrganizerDTO(bidService.getAllOrganizer()));
+    @GetMapping("/bids")
+    ResponseEntity<?> getBids(){
+        return ResponseEntity.ok(LabMapper.INSTANCE.getBidDTO(bidService.getAllBid()));
     }
 }

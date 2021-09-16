@@ -14,7 +14,7 @@ public class BidDaoImpl implements BidDao {
     @Autowired
     BidRepository bidRepository;
     @Override
-    public Page<Bid> getOrganizer(Pageable pageRequest) {
+    public Page<Bid> getBid(Pageable pageRequest) {
         return bidRepository.findAll(pageRequest);
     }
 

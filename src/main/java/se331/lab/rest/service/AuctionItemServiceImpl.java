@@ -7,43 +7,34 @@ import org.springframework.stereotype.Service;
 import se331.lab.rest.dao.AuctionItemDao;
 import se331.lab.rest.dao.BidDao;
 import se331.lab.rest.entity.AuctionItem;
-import se331.lab.rest.entity.Bid;
 
 import javax.transaction.Transactional;
 
 @Service
 public class AuctionItemServiceImpl implements AuctionItemService {
     @Autowired
-    AuctionItemDao eventDao;
+    AuctionItemDao auctionItemDao;
     @Autowired
-    BidDao organizerDao;
+    BidDao bidDao;
 
     @Override
-    public Integer getEventSize() {
-        return eventDao.getEventSize();
+    public Page<AuctionItem> getAuctionItems(Integer pageSize, Integer page) {
+        return auctionItemDao.getAuctionItems(pageSize, page);
     }
 
     @Override
-    public Page<AuctionItem> getEvents(Integer pageSize, Integer page) {
-        return eventDao.getEvents(pageSize, page);
-    }
-
-    @Override
-    public AuctionItem getEvent(Long id) {
-        return eventDao.getEvent(id);
+    public AuctionItem getAuctionItem(Long id) {
+        return auctionItemDao.getAuctionItem(id);
     }
 
     @Override
     @Transactional
     public AuctionItem save(AuctionItem auctionItem) {
-        Bid bid = organizerDao.findById(auctionItem.getBid().getId()).orElse(null);
-        auctionItem.setBid(bid);
-        bid.getOwnAuctionItems().add(auctionItem);
-        return eventDao.save(auctionItem);
+        return auctionItemDao.save(auctionItem);
     }
 
     @Override
-    public Page<AuctionItem> getEvents(String title, Pageable pageable) {
-        return eventDao.getEvent(title, pageable);
+    public Page<AuctionItem> getAuctionItems(String title, Pageable pageable) {
+        return auctionItemDao.getAuctionItem(title, pageable);
     }
 }

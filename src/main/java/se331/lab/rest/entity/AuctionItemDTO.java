@@ -5,7 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.ManyToOne;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Builder
@@ -13,12 +14,8 @@ import javax.persistence.ManyToOne;
 @AllArgsConstructor
 public class AuctionItemDTO {
     Long id;
-    String category;
-    String title;
     String description;
-    String location;
-    String date;
-    String time;
-    Boolean petAllowed;
-    EventOrganizerDTO organizer;
+    String type;
+    List<Bid> bids = new ArrayList<>();
+    BidDTO successfulBid;
 }

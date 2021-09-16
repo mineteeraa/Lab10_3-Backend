@@ -12,11 +12,14 @@ import java.util.List;
 @Mapper
 public interface LabMapper {
     LabMapper INSTANCE = Mappers.getMapper(LabMapper.class);
-    AuctionItemDTO getEventDto(AuctionItem auctionItem);
-    List<AuctionItemDTO> getEventDto(List<AuctionItem> auctionItems);
 
-    BidDTO getOrganizerDTO(Bid bid);
-    List<BidDTO> getOrganizerDTO(List<Bid> bids);
+    AuctionItemDTO getAuctionItemDto(AuctionItem auctionItem);
+
+    List<AuctionItemDTO> getAuctionItemDto(List<AuctionItem> auctionItems);
+
+    BidDTO getBidDTO(Bid bid);
+
+    List<BidDTO> getBidDTO(List<Bid> bids);
 
 
 }

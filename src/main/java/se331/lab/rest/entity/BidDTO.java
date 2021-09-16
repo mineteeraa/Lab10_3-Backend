@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.OneToMany;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 @Data
@@ -14,6 +15,6 @@ import java.util.List;
 @AllArgsConstructor
 public class BidDTO {
     Long id;
-    String name;
-    List<OrganizerOwnEventsDTO> ownEvents = new ArrayList<>();
+    Integer amount;
+    LocalDateTime datetime;
 }

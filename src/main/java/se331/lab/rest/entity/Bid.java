@@ -3,8 +3,7 @@ package se331.lab.rest.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -16,8 +15,9 @@ public class Bid {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Exclude
     Long id;
-    String name;
-    @OneToMany(mappedBy = "bid")
-    @Builder.Default
-    List<AuctionItem> ownAuctionItems = new ArrayList<>();
+    Integer amount;
+    LocalDateTime datetime;
+
+    @ManyToOne
+    AuctionItem item;
 }

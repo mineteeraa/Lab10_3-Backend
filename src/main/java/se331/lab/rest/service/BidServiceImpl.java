@@ -13,14 +13,14 @@ import java.util.List;
 @Service
 public class BidServiceImpl implements BidService {
     @Autowired
-    BidDao organizerDao;
+    BidDao bidDao;
     @Override
-    public List<Bid> getAllOrganizer() {
-        return organizerDao.getOrganizer(Pageable.unpaged()).getContent();
+    public List<Bid> getAllBid() {
+        return bidDao.getBid(Pageable.unpaged()).getContent();
     }
 
     @Override
-    public Page<Bid> getOrganizer(Integer page, Integer pageSize) {
-        return organizerDao.getOrganizer(PageRequest.of(page,pageSize));
+    public Page<Bid> getBid(Integer page, Integer pageSize) {
+        return bidDao.getBid(PageRequest.of(page,pageSize));
     }
 }

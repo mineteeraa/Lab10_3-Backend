@@ -7,7 +7,7 @@ import se331.lab.rest.entity.Bid;
 import java.util.Optional;
 
 public interface BidDao {
-    Page<Bid> getOrganizer(Pageable pageRequest);
+    Page<Bid> getBid(Pageable pageRequest);
 
     Optional<Bid> findById(Long id);
 }

@@ -3,6 +3,7 @@ package se331.lab.rest.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -15,15 +16,13 @@ public class AuctionItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Exclude
     Long id;
-    String category;
-    String title;
     String description;
-    String location;
-    String date;
-    String time;
-    Boolean petAllowed;
-    @ManyToOne
-    Bid bid;
-    @ManyToMany(mappedBy = "auctionItemHistory")
-    List<Participant> participants;
+    String type;
+
+    @OneToMany(mappedBy = "item")
+            @Builder.Default
+    List<Bid> bids = new ArrayList<>();
+
+    @OneToOne
+    Bid successfulBid;
 }

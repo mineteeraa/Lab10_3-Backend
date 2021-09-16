@@ -5,13 +5,13 @@ import org.springframework.data.domain.Pageable;
 import se331.lab.rest.entity.AuctionItem;
 
 public interface AuctionItemDao {
-    Integer getEventSize();
+    Integer getAuctionItemSize();
 
-    Page<AuctionItem> getEvents(Integer pageSize, Integer page);
+    Page<AuctionItem> getAuctionItems(Integer pageSize, Integer page);
 
-    AuctionItem getEvent(Long id);
+    AuctionItem getAuctionItem(Long id);
 
     AuctionItem save(AuctionItem auctionItem);
 
-    Page<AuctionItem> getEvent(String name, Pageable page);
+    Page<AuctionItem> getAuctionItem(String name, Pageable page);
 }

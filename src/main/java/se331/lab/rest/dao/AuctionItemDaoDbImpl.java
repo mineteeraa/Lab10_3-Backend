@@ -16,22 +16,22 @@ public class AuctionItemDaoDbImpl implements AuctionItemDao {
     AuctionItemRepository auctionItemRepository;
 
     @Override
-    public Page<AuctionItem> getEvent(String title, Pageable page) {
-        return auctionItemRepository.findByTitleIgnoreCaseContainingOrDescriptionIgnoreCaseContainingOrOrganizer_NameIgnoreCaseContaining(title, title, title, page);
+    public Page<AuctionItem> getAuctionItem(String title, Pageable page) {
+        return auctionItemRepository.findByDescriptionContainingOrTypeContaining(title, title, page);
     }
 
     @Override
-    public Integer getEventSize() {
+    public Integer getAuctionItemSize() {
         return Math.toIntExact(auctionItemRepository.count());
     }
 
     @Override
-    public Page<AuctionItem> getEvents(Integer pageSize, Integer page) {
+    public Page<AuctionItem> getAuctionItems(Integer pageSize, Integer page) {
         return auctionItemRepository.findAll(PageRequest.of(page - 1, pageSize));
     }
 
     @Override
-    public AuctionItem getEvent(Long id) {
+    public AuctionItem getAuctionItem(Long id) {
         return auctionItemRepository.findById(id).orElse(null);
     }
 

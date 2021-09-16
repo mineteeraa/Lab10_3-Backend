@@ -10,15 +10,9 @@ import java.util.List;
 public interface AuctionItemRepository extends JpaRepository<AuctionItem, Long> {
     List<AuctionItem> findAll();
 
-    Page<AuctionItem> findByTitle(String title, Pageable pageRequest);
+    Page<AuctionItem> findByDescription(String title, Pageable pageRequest);
 
-    Page<AuctionItem> findByTitleContaining(String title, Pageable pageRequest);
+    Page<AuctionItem> findByDescriptionContaining(String title, Pageable pageRequest);
 
-    Page<AuctionItem> findByTitleContainingOrDescriptionContaining(String title, String description, Pageable pageRequest);
-
-    Page<AuctionItem> findByTitleContainingAndDescriptionContaining(String title, String description, Pageable pageRequest);
-
-    Page<AuctionItem> findByTitleContainingOrDescriptionContainingOrOrganizer_NameContaining(String title, String description, String organizerName, Pageable pageRequest);
-
-    Page<AuctionItem> findByTitleIgnoreCaseContainingOrDescriptionIgnoreCaseContainingOrOrganizer_NameIgnoreCaseContaining(String title, String description, String organizerName, Pageable pageRequest);
+    Page<AuctionItem> findByDescriptionContainingOrTypeContaining(String title, String description, Pageable pageRequest);
 }

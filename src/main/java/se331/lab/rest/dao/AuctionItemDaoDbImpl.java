@@ -21,6 +21,11 @@ public class AuctionItemDaoDbImpl implements AuctionItemDao {
     }
 
     @Override
+    public Page<AuctionItem> getAuctionItem(Integer amount, Pageable page) {
+        return auctionItemRepository.findBySuccessfulBid_AmountLessThan(amount, page);
+    }
+
+    @Override
     public Integer getAuctionItemSize() {
         return Math.toIntExact(auctionItemRepository.count());
     }

@@ -15,4 +15,6 @@ public interface AuctionItemRepository extends JpaRepository<AuctionItem, Long> 
     Page<AuctionItem> findByDescriptionContaining(String title, Pageable pageRequest);
 
     Page<AuctionItem> findByDescriptionContainingOrTypeContaining(String title, String description, Pageable pageRequest);
+
+    Page<AuctionItem> findBySuccessfulBid_AmountLessThan (Integer amount, Pageable pageRequest);
 }

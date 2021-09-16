@@ -14,4 +14,6 @@ public interface AuctionItemService {
     AuctionItem save(AuctionItem auctionItem);
 
     Page<AuctionItem> getAuctionItems(String title, Pageable pageable);
+
+    Page<AuctionItem> getAuctionItems(Integer amount, Pageable pageable);
 }

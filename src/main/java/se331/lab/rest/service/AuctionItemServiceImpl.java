@@ -18,7 +18,7 @@ public class AuctionItemServiceImpl implements AuctionItemService {
     BidDao bidDao;
 
     @Override
-    public Integer getAuctionItemSize(){
+    public Integer getAuctionItemSize() {
         return auctionItemDao.getAuctionItemSize();
     }
 
@@ -41,5 +41,10 @@ public class AuctionItemServiceImpl implements AuctionItemService {
     @Override
     public Page<AuctionItem> getAuctionItems(String title, Pageable pageable) {
         return auctionItemDao.getAuctionItem(title, pageable);
+    }
+
+    @Override
+    public Page<AuctionItem> getAuctionItems(Integer amount, Pageable pageable) {
+        return auctionItemDao.getAuctionItem(amount, pageable);
     }
 }

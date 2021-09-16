@@ -14,4 +14,6 @@ public interface AuctionItemDao {
     AuctionItem save(AuctionItem auctionItem);
 
     Page<AuctionItem> getAuctionItem(String name, Pageable page);
+
+    Page<AuctionItem> getAuctionItem(Integer amount, Pageable page);
 }
